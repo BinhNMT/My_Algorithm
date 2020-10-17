@@ -1,10 +1,11 @@
 #ifndef BUBBLESORT_H
 #define BUBBLESORT_H
 
-class BubbleSort
+#include "Sort.h"
+
+class BubbleSort: public Sort
 {
 private:
-    void swapValues(int &, int &);
     void compareAndSort(int*, int);
 
 public:
