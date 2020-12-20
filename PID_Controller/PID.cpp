@@ -12,10 +12,12 @@ void PID::setPivot(float expectedValue)
     pivot = expectedValue;
 }
 
-void PID::setSystemCoefficient(float inputKp,
+void PID::setSystemCoefficient(float sampleTime,
+                               float inputKp,
                                float inputKi,
                                float inputKd)
 {
+    time = sampleTime;
     Kp = inputKp;
     Ki = inputKi;
     Kd = inputKd;

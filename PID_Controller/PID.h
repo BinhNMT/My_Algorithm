@@ -29,9 +29,10 @@ public:
     ~PID();
 
     void setPivot(float);
-    void setSystemCoefficient(float,    /* set Kp */
-                               float,   /* set Ki */
-                               float);  /* set Kd */
+    void setSystemCoefficient(float,   /* set sample time */
+                              float,   /* set Kp */
+                              float,   /* set Ki */
+                              float);  /* set Kd */
     float PIDProcessor();
 };
 
