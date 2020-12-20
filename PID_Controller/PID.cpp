@@ -23,11 +23,11 @@ void PID::setSystemCoefficient(float sampleTime,
     Kd = inputKd;
 }
 
-float PID::PIDProcessor()
+float PID::PIDProcessor(float systemOutput)
 {
     // Calculate the actual difference output
     error = pivot - systemOutput;
-
+    
     Proportional = Kp * error;
     Integration = Ki * (error / time);
     Derivaty = Kd * (error - preError) * time;
