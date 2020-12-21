@@ -28,14 +28,14 @@ private:
     float limMax;
 
 public:
-	PID();
+    PID();
     void setPivot(float);
     void setSystemCoefficient(float,	/* set sample time */
                               float,	/* set Kp */
                               float,	/* set Ki */
                               float,	/* set Kd */
-							  float,	/* max limit value */
-							  float);	/* min limit value */
+                              float,	/* max limit value */
+                              float);	/* min limit value */
     float PIDProcessor(float);
 };
 
