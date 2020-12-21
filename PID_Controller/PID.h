@@ -1,6 +1,6 @@
 /*
 *
-*
+* Based on https://github.com/pms67/PID
 *
 */
 
@@ -23,12 +23,19 @@ private:
     float Integration;
     float Derivaty;
 
+	/* Output limits */
+	float limMin;
+	float limMax;
+
 public:
+	PID();
     void setPivot(float);
-    void setSystemCoefficient(float,   /* set sample time */
-                              float,   /* set Kp */
-                              float,   /* set Ki */
-                              float);  /* set Kd */
+    void setSystemCoefficient(float,	/* set sample time */
+                              float,	/* set Kp */
+                              float,	/* set Ki */
+                              float,	/* set Kd */
+							  float,	/* max limit value */
+							  float);	/* min limit value */
     float PIDProcessor(float);
 };
 
