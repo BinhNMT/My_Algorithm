@@ -23,9 +23,9 @@ private:
     float Integration;
     float Derivaty;
 
-	/* Output limits */
-	float limMin;
-	float limMax;
+    /* Output limits */
+    float limMin;
+    float limMax;
 
 public:
 	PID();
