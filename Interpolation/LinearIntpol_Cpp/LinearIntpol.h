@@ -2,7 +2,8 @@
 *
 *
 */
-#include "Intpol.h"
+#ifndef LINEARINTPOL_H
+#define LINEARINTPOL_H
 
 class LinearIntpol
 {
@@ -13,3 +14,5 @@ public:
                       float /* 'Y' coordination of second point*/,
                       float /* 'Y' coordination of expected point*/);
 };
+
+#endif
