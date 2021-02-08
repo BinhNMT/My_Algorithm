@@ -7,22 +7,20 @@
 #ifndef ASW_STOPPINGDISTANCE_H
 #define ASW_STOPPINGDISTANCE_H
 
-#include "ASW_ConfigParameters.h"
-
 // @brief: calculate the distance after the brake is applied.
 // @detailed: Braking Distance = velocity^2 / (2 x Friction Coefficent x Gravity Accelerate)
 // #param: Velocity (m/s)
 //         Friction Coefficent
 //
-float brakingDistance(float velocity,
-                      float frictionCoeff);
+float brakingDistance(float p_velocity,
+                      float p_frictionCoeff);
 
 // @brief: calculate the reaction distance covered by the vehicle 
 //         due to the reaction time/delay of the driver between the moment 
 //         an obstacle is spotted on the road and the moment the brakes are applied.
 // #param: Velocity (m/s)
 //
-float reactionDistance(float velocity);
+float reactionDistance(float p_velocity);
 
 /*
 *   _________     |                   |                                   |STOPPED
@@ -39,7 +37,7 @@ float reactionDistance(float velocity);
 // #param: Velocity (m/s)
 //         Friction Coefficent
 //
-float stoppingDistance(float velocity,
-                       float frictionCoeff);
+float stoppingDistance(float p_velocity,
+                       float p_frictionCoeff);
 
 #endif /*ASW_STOPPINGDISTANCE_H*/
