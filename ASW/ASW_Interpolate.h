@@ -7,14 +7,10 @@
 #ifndef ASW_INTERPOLATE_H
 #define ASW_INTERPOLATE_H
 
-struct VehicleState
-{
-    /* data */
-    float prevSpeed;     // Previous vehicle speed (m/s)
-};
+#include "ASW_VehicleState.h"
 
 // @brief: Interpolate vehicle speed per cycle-time.
 //
-float interpolVehicleSpeed(struct VehicleState *ptrVehicleState);
+void interpolVehicleSpeed(struct VehicleState *ptrVehicleState);
 
 #endif /* ASW_INTERPOLATE_H */

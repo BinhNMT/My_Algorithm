@@ -3,28 +3,51 @@
 #include "ASW_StoppingDistance.h"
 #include "ASW_ConfigParameters.h"
 #include "ASW_Interpolate.h"
+#include "ASW_WheelSpeedHandling.h"
 
-int main(int argc, char* argv[])
+void testcase1(struct VehicleState *ptrObj, int loop, float velocity)
 {
-    int velocity = atof(argv[1]);
-    int loop = atoi(argv[2]);
-    float tc1;
-    float tc2;
-    struct VehicleState State;
-
-    State.prevSpeed = velocity;
-
-    tc1 = brakingDistance(velocity, FRICTCOEFF);
-    printf("Braking Distance = %f\n", tc1);
+    float distance  = brakingDistance(velocity, FRICTCOEFF);
+    printf("Braking Distance = %f\n", distance);
     
     for (int i = 0; i < loop; i++)
     {
-        tc2 = interpolVehicleSpeed(&State);
-        if (tc2 <= 0)
+        interpolVehicleSpeed(ptrObj);
+        if (ptrObj->vehicleSpeed <= 0)
         {
             break;
         }
-        printf("Speed = %f\n", tc2);
+        printf("Speed = %f\n", ptrObj->vehicleSpeed);
+    }
+}
+
+void testcase2(struct VehicleState *ptrObj)
+{
+    //
+}
+
+int main(int argc, char* argv[])
+{
+    int testcase = atoi(argv[1]);
+    int velocity = atof(argv[2]);
+    int loop = atoi(argv[3]);
+    
+    struct VehicleState State;
+
+    State.vehicleSpeed = velocity;
+
+    switch (testcase)
+    {
+    case 1:
+        testcase1(&State, loop, velocity);
+        break;
+    
+    case 2:
+        testcase2(&State);
+        break;
+
+    default:
+        break;
     }
 
     return 0;

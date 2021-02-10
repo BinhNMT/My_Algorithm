@@ -1,5 +1,5 @@
 /*
-* ASW_Interpolate.h
+* ASW_Interpolate.c
 *   Author: BinhNMT
 *   Email: binhmainguyen193@gmail.com
 */
@@ -10,19 +10,17 @@
 
 // @brief: Interpolate vehicle speed per cycle-time.
 //
-float interpolVehicleSpeed(struct VehicleState *ptrVehicleState)
+void interpolVehicleSpeed(struct VehicleState *ptrVehicleState)
 {
-    float currentSpeed;
+    float newSpeed;
     
     /*
     *                        Previous_Vehicle_Speed
     *   Current_Speed = ---------------------------------
     *                   Decelerate x Cycle_Interrupt_Time
     */
-    currentSpeed = ptrVehicleState->prevSpeed - (DECEL * CYCLETIME);
+    newSpeed = ptrVehicleState->vehicleSpeed - (DECEL * CYCLETIME);
 
     // Set current speed to previous speed
-    ptrVehicleState->prevSpeed = currentSpeed;
-    
-    return currentSpeed;
+    ptrVehicleState->vehicleSpeed = newSpeed;
 }
